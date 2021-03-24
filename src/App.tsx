@@ -1,6 +1,5 @@
 import { NewNoteInput } from "./NewNoteInput";
-import { Provider, useSelector, useDispatch } from "react-redux";
-import { store } from "./store";
+import { useSelector, useDispatch } from "react-redux";
 import { NotesState } from "./reducer";
 
 function App() {
@@ -15,7 +14,7 @@ function App() {
   };
 
   return (
-    <Provider store={store}>
+    <>
       <NewNoteInput addNote={addNote} />
       <hr />
       <ul>
@@ -23,7 +22,7 @@ function App() {
           <li key={note}>{note}</li>
         ))}
       </ul>
-    </Provider>
+    </>
   );
 }
 
