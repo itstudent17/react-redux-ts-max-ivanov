@@ -1,5 +1,5 @@
 import { NewNoteInput } from "./NewNoteInput";
-import { Provider, useSelector } from "react-redux";
+import { Provider, useSelector, useDispatch } from "react-redux";
 import { store } from "./store";
 import { NotesState } from "./reducer";
 
@@ -8,9 +8,15 @@ function App() {
     (state) => state.notes
   );
 
+  const dispatch = useDispatch();
+
+  const addNote = (note: string) => {
+    dispatch({ type: "ADD_NOTE", payload: note });
+  };
+
   return (
     <Provider store={store}>
-      <NewNoteInput addNote={() => alert()} />
+      <NewNoteInput addNote={addNote} />
       <hr />
       <ul>
         {notes.map((note: string) => (
