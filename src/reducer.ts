@@ -1,4 +1,5 @@
 import { AddNoteActionType } from "./actions";
+import { ADD_NOTE } from "./actionsTypes";
 
 export interface NotesState {
   notes: Array<string>;
@@ -13,7 +14,7 @@ export const reducer = (
   action: AddNoteActionType
 ) => {
   switch (action.type) {
-    case "ADD_NOTE":
+    case ADD_NOTE:
       return { ...state, notes: [...state.notes, action.payload] };
 
     default:
